@@ -67,4 +67,3 @@ If you have interests in the directed graph construction and the generation via 
 
 More information please ref to [for detail](./documents/时序评测工具使用手册.pdf)
 
-test on 2/9
