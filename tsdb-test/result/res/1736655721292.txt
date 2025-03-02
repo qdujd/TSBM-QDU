@@ -1,0 +1,8 @@
+##query	result
+query1	341
+query2	346
+query3	519
+query4	396
+query5	303
+query6	15759	2168487500
+

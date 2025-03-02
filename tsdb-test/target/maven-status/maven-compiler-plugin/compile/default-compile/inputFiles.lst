@@ -1,0 +1,10 @@
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/DruidAdapter.java
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/IotDBUtils.java
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/InfluxdbAdapter.java
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/TimescaledbAdapter.java
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/TdengineAdapter2.java
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/TimescaledbUtils.java
+/taos/snh/tsbm/tsdb-test/src/main/java/TSDBTest.java
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/OpentsdbAdapter.java
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/IotdbAdapter.java
+/taos/snh/tsbm/tsdb-test/src/main/java/cn/edu/ruc/DruidUtils.java

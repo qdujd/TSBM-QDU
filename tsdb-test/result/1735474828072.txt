@@ -1,0 +1,27 @@
+##append	result
+###append	farm++	result
+farm		1		29653
+farm		2		70391
+farm		4		111747
+farm		8		304383
+farm		16		614797
+farm		32		1006287
+farm		64		1725889
+farm		128		370871
+farm		256		103448
+###append	device++	result
+device		50			462277
+device		100			377534
+device		150			385871
+device		200			254224
+device		250			235093
+device		300			157450
+
+##query	result
+query1	402
+query2	461
+query3	613
+query4	424
+query5	263
+query6	4115	440487500
+

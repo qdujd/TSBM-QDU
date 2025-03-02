@@ -1,0 +1,8 @@
+##query	result
+query1	20
+query2	66
+query3	260
+query4	49
+query5	110
+query6	12932	2160000000
+

@@ -1,0 +1,7 @@
+##query  result
+query1	7
+query2	4
+query3	183
+query4	232
+query5	2163
+

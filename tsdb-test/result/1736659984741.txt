@@ -1,0 +1,8 @@
+##query	result
+query1	8
+query2	5
+query3	199
+query4	254
+query5	2242
+query6	-1	-1
+
