@@ -3,15 +3,16 @@ package cn.edu.ruc;
 import cn.edu.ruc.adapter.BaseAdapter;
 import cn.edu.ruc.start.TSBM;
 import cn.edu.ruc.utils.ResultUtils;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.apache.iotdb.jdbc.IoTDBSQLException;
 /**
  * iotdb test
  */
 public class IotdbAdapter implements BaseAdapter {
-    private String driverClass = "cn.edu.tsinghua.iotdb.jdbc.TsfileDriver";
+    private String driverClass = "org.apache.iotdb.jdbc.IoTDBDriver";
     private String userName = "";
     private String passwd = "";
     private String rootSeries = "root.p";
@@ -23,7 +24,7 @@ public class IotdbAdapter implements BaseAdapter {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.url = String.format("jdbc:tsfile://%s:%s/", ip, port);
+        this.url = String.format("jdbc:iotdb://%s:%s/", ip, port);
         this.userName = user;
         this.passwd = password;
     }
@@ -101,9 +102,6 @@ public class IotdbAdapter implements BaseAdapter {
             }
             long startTime = System.nanoTime();
             int[] ints = statement.executeBatch();
-            for (int i : ints) {
-                System.out.println(i);
-            }
             long endTime = System.nanoTime();
             costTime = endTime - startTime;
             statement.clearBatch();
@@ -131,11 +129,10 @@ public class IotdbAdapter implements BaseAdapter {
         System.out.println(eSql);
         return execQuery(eSql);
     }
-
+    //修改 query 语句以适应 iotdb 版本更新
     public long query3(long start, long end) {
         //select mean(*) from root.perform.f1.* group by (1h,[0,100000000]);
-        String formatSql = "select mean(s1) from  %s.%s.* where time>=%s and time<=%s group by " +
-                "(1h,[%s,%s])";
+        String formatSql = "select avg(s1) from  %s.%s.* where time>=%s and time<=%s group by time([%s, %s), 1h)";
         String eSql = String.format(formatSql, rootSeries, "f1", start, end, start, end);
         System.out.println(eSql);
         return execQuery(eSql);
@@ -157,12 +154,6 @@ public class IotdbAdapter implements BaseAdapter {
         return execQuery(eSql);
     }
 
-    @Override
-    public ResultUtils query6() {
-        return new ResultUtils(0, 0);
-    }
-
-
     public long execQuery(String sql) {
         Connection conn = getConnection();
         Statement statement = null;
@@ -182,5 +173,9 @@ public class IotdbAdapter implements BaseAdapter {
             closeConnection(conn);
         }
         return costTime / 1000 / 1000;
+    }
+
+    public ResultUtils query6() {
+        return null;
     }
 }
